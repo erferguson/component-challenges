@@ -4,7 +4,7 @@
 Disclaimer: If you have limited JS/React experince this might be pretty difficult. 
 
 ## Overview
-If you're not a fan of reading click this link for a video explainer 😘
+If you're not a fan of reading click this link for a video explainer 😘. https://www.loom.com/share/5ca045f38283403bafead3f6e4fe6999
 
 Starting of with a some-what simple challenge. We're going to make a profile card
 that is fully custimizable - no hardcoding. Its going to have very simple logic and
