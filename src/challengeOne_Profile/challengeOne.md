@@ -1,5 +1,6 @@
 # Challenge One: Profile
 ### Craeted by: Matt Vaccaro
+### Figma File: https://www.figma.com/file/bisRO35wmn3BN0tQzkC8nD/Component-Challenges?node-id=1%3A20
 
 Disclaimer: If you have limited JS/React experince this might be pretty difficult. 
 
