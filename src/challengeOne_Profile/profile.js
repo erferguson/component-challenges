@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
-const Profile = () => {
-	const someText = 'Button'
+const Profile = (props) => {
+	const someText = 'Code Together'
 
 	const [friends, setFriends] = useState(0)
 
@@ -10,12 +10,32 @@ const Profile = () => {
 	}
 
 	return (
-	<div> Do the Thing 
-		<div>New Friends: <span>{friends}</span></div>
-		<button onClick={increase}>{someText}</button>
+	<div style={{border: '3px solid red'}}> Header 
+		<div style={{border: '3px solid blue'}}>
+			image <br/>
+			name <br/>
+			location <br/>
+		</div>
+		<div style={{border: '3px solid blue'}}>
+			<h3>Friends</h3>
+			<p>some number</p>
+			<h3>Repo</h3>
+			<p>other number</p>
+			<h3>Bugs</h3>
+			<p>third number</p>
+		</div>
+		<div style={{border: '3px solid yellow'}}>
+			<button>
+				<p>small image</p>
+				<p>button title</p>
+			</button>
+			<p>chat image</p>
+		</div>
 	</div>
 	)
 };
 
 export default Profile;
-// <button onClick={ () => submitForm(data) } />
+
+{/* <div>Friends: <span>{friends}</span></div>
+		<button onClick={increase}>{someText}</button> */}
