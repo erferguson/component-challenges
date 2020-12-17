@@ -10,8 +10,11 @@ const Profile = () => {
 
   const [friends, setFriends] = useState(null);
 
+  const [buttonOn, setButtonOn] = useState(true);
+
   const addFriend = () => {
     setFriends(friends + 1);
+    setButtonOn(!buttonOn);
   };
 
   const deleteFriend = () => {
@@ -60,7 +63,8 @@ const Profile = () => {
         </div>
       </div>
       <div style={{ border: "3px solid yellow" }}>
-        <button
+		{setButtonOn ? 
+		 <button
           onClick={() => {
             addFriend();
           }}
@@ -68,6 +72,7 @@ const Profile = () => {
           <img src={terminalIcon} />
           <p>Code Together</p>
         </button>
+		:
         <button
           onClick={() => {
             deleteFriend();
@@ -76,6 +81,8 @@ const Profile = () => {
           <img src={terminalIcon} />
           <p>Code Together</p>
         </button>
+		}
+       
         <img src={msgIcon} alt="chat icon" />
       </div>
     </div>
