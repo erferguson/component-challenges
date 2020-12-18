@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import locationPin from "./assets/pinIcon.svg";
 import msgIcon from "./assets/messageIcon.svg";
 import terminalIcon from "./assets/terminalIcon.svg";
+import { motion } from 'framer-motion'
 
 const Profile = () => {
   // state setting the data too
@@ -19,6 +20,7 @@ const Profile = () => {
 
   const deleteFriend = () => {
     setFriends(friends - 1);
+    setButtonOn(!buttonOn)
   };
 
   useEffect(() => {
@@ -42,12 +44,16 @@ const Profile = () => {
   }
 
   return (
+    <motion.div
+    animate={{ scale: [1,2,2,1,1] }}
+    transition={{ duration: 0.5 }}
+    >
     <div className="mainDiv">
       <div className='headerDiv'>
         <img className="profileImage" src={person.avatar_url} alt="profile photo" /> <br />
         <p className='name'>{person.name}</p>
         <p className='location'>
-          <img src={locationPin} alt="location pin" />
+          <img className='locationPin' src={locationPin} alt="location pin" />
           {person.location}
         </p>
       </div>
@@ -86,12 +92,20 @@ const Profile = () => {
           <img className="buttonImage" src={terminalIcon} />
           Code Together
         </button>
-		}
-		<div className='msgWrapper'>
+    }
+    { buttonOn ?
+      <div className='msgWrapper'>
 			<img src={msgIcon} alt="chat icon" />
-		</div>
+		  </div>
+    : 
+    <div className="newFriends">
+    <h4>Friends</h4>
+    <p className="friendsNum">{friends}</p>
+    </div>
+    }
       </div>
     </div>
+    </motion.div>
   );
 };
 
