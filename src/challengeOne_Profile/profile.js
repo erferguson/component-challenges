@@ -37,68 +37,62 @@ const Profile = () => {
       });
   }, []);
 
+  if(!person){
+    return <p>loading...</p>
+  }
+
   return (
-    <div style={{ border: "3px solid red" }}>
-      Header
-      <div style={{ border: "3px solid blue" }}>
-        <img src={person.avatar_url} alt="profile photo" /> <br />
-        <p>{person.name}</p>
-        <p>
+    <div className="mainDiv">
+      <div className='headerDiv'>
+        <img className="profileImage" src={person.avatar_url} alt="profile photo" /> <br />
+        <p className='name'>{person.name}</p>
+        <p className='location'>
           <img src={locationPin} alt="location pin" />
           {person.location}
         </p>
       </div>
-      <div style={{ border: "3px solid blue" }}>
-        <div>
+      <div className='friendsDiv'>
+        <div className='friendsMiniDiv'>
           <h3>Friends</h3>
-          <p>{person.followers}</p>
+          <p className="friendsNums">{person.followers}</p>
         </div>
-        <div>
+        <div className='friendsMiniDiv'>
           <h3>Repo</h3>
-          <p>{person.public_repos}</p>
+          <p className="friendsNums">{person.public_repos}</p>
         </div>
-        <div>
+        <div className='friendsMiniDiv'>
           <h3>Bugs</h3>
-          <p>{person.public_gists}</p>
+          <p className="friendsNums">{person.public_gists}</p>
         </div>
       </div>
-      <div style={{ border: "3px solid yellow" }}>
-		{setButtonOn ? 
+      <div className='buttonWrapper'>
+		{buttonOn ? 
 		 <button
+		 className='upButton codeTogether'
           onClick={() => {
             addFriend();
           }}
         >
-          <img src={terminalIcon} />
-          <p>Code Together</p>
+          <img className="buttonImage" src={terminalIcon} />
+          Code Together
         </button>
 		:
         <button
+		className='downButton codeTogether'
           onClick={() => {
             deleteFriend();
           }}
         >
-          <img src={terminalIcon} />
-          <p>Code Together</p>
+          <img className="buttonImage" src={terminalIcon} />
+          Code Together
         </button>
 		}
-       
-        <img src={msgIcon} alt="chat icon" />
+		<div className='msgWrapper'>
+			<img src={msgIcon} alt="chat icon" />
+		</div>
       </div>
     </div>
   );
 };
 
 export default Profile;
-
-// const someText = 'Code Together'
-
-// 	const [friends, setFriends] = useState(0)
-
-// 	const increase = e => {
-// 		setFriends(friends + 1)
-// 	}
-{
-  /* <div>Friends: <span>{friends}</span></div>
-		<button onClick={increase}>{someText}</button> */
-}
